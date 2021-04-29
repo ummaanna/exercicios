@@ -1,0 +1,67 @@
+// p1
+package exercises
+
+import org.junit.Assert
+import org.junit.Test
+
+// testando a qauntidade de vogais
+class VocalConTeste {
+
+
+    @Test fun countVowels(){
+        Assert.assertEquals(11, countVowels("Quantas vogais tem esta frase?"))
+
+    }
+
+    //testando a quantidade de consuates
+
+    @Test fun countConsolants(){
+        Assert.assertEquals(21, countConsolants("Geralmente uma frase possui mais consoantes!"))
+
+    }
+
+    // função para testar as vogais  consoantes ao mesmo tempo
+    @Test fun countVandC(){
+        val  phrase = " Estou gostando muito de aprender Kotlin!"
+        Assert.assertEquals(15, countVowels(phrase))
+        Assert.assertEquals(19, countConsolants(phrase))
+
+    }
+}
+
+p2
+
+package exercises
+
+fun countVowels(phrase: String) : Int{
+   val v ="aeiou"
+
+    var tv = 0
+// vai pegar todas as letras de phrase e colocar em latter
+    for (letter in phrase){
+        // converter todas as letras da frase para minusculo antes da comparação
+     if(letter.toLowerCase() in  v) // verifica se as letras estão contidas
+         tv++
+
+    }
+
+    return tv
+
+    }
+
+fun countConsolants(phrase: String) : Int{
+    val c ="bcdfghjklmnopqrstvxywz"
+
+    var tc = 0
+    for (letter in phrase){
+        // converter todas as letras da frase para minusculo antes da comparação
+        if(letter.toLowerCase() in  c) // verifica se as letras estão contidas
+            tc++
+
+    }
+
+    return tc
+
+}
+
+
