@@ -1,0 +1,65 @@
+//Class
+
+
+package exercicios
+import org.junit.Assert
+import org.junit.Test
+
+class VowelConsonantTest {
+
+    @Test fun countVowels(){
+        Assert.assertEquals(11, countVowels("Quantas vogais tem esta frase?"))
+    }
+
+    @Test fun countConsonamants(){
+        Assert.assertEquals(21, countConsonamants("Geralmente uma frase possui mais consoantes!"))
+
+    }
+
+    @Test fun countVandC(){
+        val  phrase = " Estou gostando muito de aprender Kotlin!"
+        Assert.assertEquals(15, countVowels(phrase))
+        Assert.assertEquals(19, countConsonamants(phrase))
+
+    }
+    // nova função usando Filter
+    @Test fun countVowelsFilter(){
+        // se colocar mais uma vocal dara erro
+    Assert.assertEquals(8,countVowelsFilter("Minha frase com vogais!"))
+
+    }
+
+
+}
+
+//kt
+
+
+package exercicios
+
+fun countVowels(phrase: String): Int{
+
+    val VOLWES = "aeiou"
+    var totalVolwes = 0
+
+    for(letter in phrase){
+        if(letter.toLowerCase() in VOLWES) totalVolwes ++
+
+    }
+    return totalVolwes
+}
+
+fun countConsonamants(phrase: String): Int {
+
+    val CONSONAMANTS = "bcdfghjklmnpqrstvxywz"
+    var totalConsonamant = 0
+
+    for (letter in phrase) {
+        if (letter.toLowerCase() in CONSONAMANTS) totalConsonamant++
+    }
+    return totalConsonamant
+}
+
+// vai contar quantas vogaus possui e voltar com o tamanho contabilizado
+fun countVowelsFilter(phrase: String) = phrase.filter { it.toLowerCase() in "aeiou" }.length
+
